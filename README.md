@@ -4,7 +4,7 @@ Helper functions for processing 10X single-cell libraries with scanpy.
 
 ## Installation
 ```bash
-pip install git+https://github.com/YOURNAME/scanpy-helpers.git
+pip install git+https://github.com/rj-jpg/scanpy-helpers.git
 ```
 
 For RNA velocity support:
