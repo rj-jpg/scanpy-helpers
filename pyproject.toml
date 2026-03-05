@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"          # ← was wrong; "setuptools.backends.legacy:build" doesn't exist
+
+[project]
+name = "scanpy-helpers"                          # ← hyphens are the PyPI convention for names
+version = "0.1.0"
+description = "Helper functions for 10X single-cell library processing"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Rijul Singhal", email = "rijul.singhal1@gmail.com" }
+]
+license = { text = "MIT" }
+
+dependencies = [
+    "scanpy>=1.9",
+    "anndata>=0.9",
+    "pandas>=1.5",
+    "numpy>=1.23",
+    "matplotlib>=3.6",
+    "seaborn>=0.12",
+    "scikit-learn>=1.1",
+    "scipy>=1.9",
+    "statsmodels>=0.13",
+    "adjustText>=0.8",
+    "statannotations>=0.5",
+    # scvelo and cellbender intentionally omitted — see note below
+]
+
+[project.optional-dependencies]
+velocity = ["scvelo>=0.2"]                       # ← optional: only needed for RNA velocity
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "ruff",                                       # linter + formatter
+]
+
+[project.urls]
+Homepage = "https://github.com/rj-jpg/scanpy-helpers"
+Issues   = "https://github.com/rj-jpg/scanpy-helpers/Issues"
+
+[tool.setuptools.packages.find]
+where     = ["."]
+include   = ["scanpy_helpers*"]                  # ← be explicit; avoids accidentally packaging test dirs etc.
+
+[tool.ruff]
+line-length = 88
+select      = ["E", "F", "I"]                    # pycodestyle, pyflakes, isort
