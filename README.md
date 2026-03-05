@@ -9,7 +9,7 @@ pip install git+https://github.com/YOURNAME/scanpy-helpers.git
 
 For RNA velocity support:
 ```bash
-pip install "scanpy-helpers[velocity] @ git+https://github.com/YOURNAME/scanpy-helpers.git"
+pip install "scanpy-helpers[velocity] @ git+https://github.com/rj-jpg/scanpy-helpers.git"
 ```
 
 CellBender users: install CellBender separately following their
